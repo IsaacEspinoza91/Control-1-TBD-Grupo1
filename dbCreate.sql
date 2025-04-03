@@ -1,3 +1,8 @@
+-- Creamos la base de datos primeramente
+CREATE DATABASE retailbd;
+
+-- Conectamos a la base de datos creada previamente
+\connect retailbd;
 
 -- Creacion de tablas
 -- Tabla Comuna
