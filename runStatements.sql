@@ -1,4 +1,22 @@
 -- 1. Producto más vendido por mes el 2021. [Williams]
+SELECT
+	PE.mes as mes_2021,
+	P.nombre as nombre_producto,
+	PE.cantidad_producto as cantidad_vendida
+FROM(
+	SELECT
+		DATE_PART('month', V.fecha) AS mes,
+		PV.id_producto,
+		SUM(PV.cantidad) as cantidad_producto,
+		RANK () OVER (PARTITION BY DATE_PART('month', V.fecha) ORDER BY SUM(PV.cantidad) DESC) AS rango
+	FROM Venta V
+	JOIN prod_venta PV on V.id_venta = PV.id_venta
+	WHERE DATE_PART('year', V.fecha) = 2021
+	GROUP BY mes, PV.id_producto
+	ORDER BY mes, cantidad_producto DESC) AS PE
+JOIN producto P ON P.id_producto = PE.id_producto
+WHERE rango = 1
+ORDER BY PE.mes, PE.id_producto;
 -- 2. Producto más económico por tienda. [Omar]
 -- 3. Ventas por mes, separadas entre Boletas y Facturas. [Omar]
 -- 4. Empleado que ganó más por tienda en 2020, indicando la comuna donde vive y el cargo que tiene en la empresa. [Williams]
