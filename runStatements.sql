@@ -4,6 +4,21 @@
 -- 4. Empleado que ganó más por tienda en 2020, indicando la comuna donde vive y el cargo que tiene en la empresa. [Williams]
 -- 5. La tienda que tiene menos empleados. [Bastian]
 -- 6. El vendedor con más ventas por mes. [Emir]
+WITH ventas_mensuales AS (
+    SELECT 
+        TO_CHAR(v.fecha, 'Month') AS mes,
+        EXTRACT(MONTH FROM v.fecha) AS numero_mes,
+        e.primer_nombre || ' ' || e.primer_apellido AS vendedor,
+        COUNT(*) AS total_ventas,
+        RANK() OVER (PARTITION BY EXTRACT(MONTH FROM v.fecha) ORDER BY COUNT(*) DESC) AS ranking
+    FROM Venta v
+    JOIN Empleado e ON v.id_empleado = e.id_empleado
+    GROUP BY EXTRACT(MONTH FROM v.fecha), TO_CHAR(v.fecha, 'Month'), vendedor
+)
+SELECT mes, numero_mes, vendedor, total_ventas
+FROM ventas_mensuales
+WHERE ranking = 1 
+ORDER BY numero_mes; 
 
 
 -- 7. El vendedor que ha recaudado más dinero para la tienda por año. [Isaac]
@@ -58,6 +73,24 @@ ORDER BY
 
 
 -- 8. El vendedor con más productos vendidos por tienda. [Emir]
+WITH ventas_por_tienda AS (
+    SELECT 
+        v.id_tienda,
+        e.primer_nombre || ' ' || e.primer_apellido AS vendedor,
+        COUNT(*) AS total_ventas,
+        RANK() OVER (PARTITION BY v.id_tienda ORDER BY COUNT(*) DESC) AS ranking
+    FROM Venta v
+    JOIN Empleado e ON v.id_empleado = e.id_empleado
+    GROUP BY v.id_tienda, vendedor
+)
+SELECT 
+    t.nombre,
+    vendedor, 
+    total_ventas
+FROM ventas_por_tienda vp
+JOIN Tienda t ON vp.id_tienda = t.id_tienda
+WHERE vp.ranking = 1
+ORDER BY t.nombre;
 -- 9. El empleado con mayor sueldo por mes. [Bastian]
 
 
