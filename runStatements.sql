@@ -36,6 +36,13 @@ WHERE p.precio = (
     WHERE tp2.id_tienda = t.id_tienda
 );
 -- 3. Ventas por mes, separadas entre Boletas y Facturas. [Omar]
+SELECT 
+	TO_CHAR(fecha, 'YYYY-MM') AS mes,
+	tipo_doc AS Tipo_Documento,
+	SUM(total) AS total_dinero_mensual
+FROM venta
+GROUP BY mes, Tipo_Documento
+ORDER BY mes ASC
 -- 4. Empleado que ganó más por tienda en 2020, indicando la comuna donde vive y el cargo que tiene en la empresa. [Williams]
 -- 5. La tienda que tiene menos empleados. [Bastian]
 -- 6. El vendedor con más ventas por mes. [Emir]
