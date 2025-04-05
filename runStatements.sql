@@ -153,6 +153,42 @@ WHERE vp.ranking = 1
 ORDER BY t.nombre;
 -- 9. El empleado con mayor sueldo por mes. [Bastian]
 
+WITH EmpleadosPorMes AS (
+    SELECT 
+        EXTRACT(YEAR FROM te.fecha_contrato) AS año,
+        EXTRACT(MONTH FROM te.fecha_contrato) AS mes,
+        e.id_empleado,
+        e.primer_nombre,
+        e.primer_apellido,
+        e.cargo,
+        e.sueldo_bruto,
+        t.nombre AS tienda,
+        ROW_NUMBER() OVER (
+            PARTITION BY EXTRACT(YEAR FROM te.fecha_contrato), EXTRACT(MONTH FROM te.fecha_contrato) 
+            ORDER BY e.sueldo_bruto DESC
+        ) AS ranking
+    FROM 
+        Empleado e
+    JOIN 
+        Tienda_Emp te ON e.id_empleado = te.id_empleado
+    JOIN 
+        Tienda t ON te.id_tienda = t.id_tienda
+)
+SELECT 
+    año,
+    mes,
+    id_empleado,
+    primer_nombre,
+    primer_apellido,
+    cargo,
+    sueldo_bruto,
+    tienda
+FROM 
+    EmpleadosPorMes
+WHERE 
+    ranking = 1
+ORDER BY 
+    año, mes;
 
 -- 10. La tienda con menor recaudación por mes. [Isaac]
 -- Obtiene la recaudacion total de cada tienda segun mes y anio
