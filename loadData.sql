@@ -1,4 +1,4 @@
--- Insertar comunas
+-- Insertar comunas (se mantiene igual)
 INSERT INTO Comuna (nombre) VALUES
 ('Santiago Centro'),
 ('Providencia'),
@@ -16,27 +16,27 @@ INSERT INTO Comuna (nombre) VALUES
 ('Independencia'),
 ('Recoleta');
 
--- Insertar tiendas
+-- Insertar tiendas (se mantiene igual)
 INSERT INTO Tienda (nombre, lugar, id_comuna) VALUES
 ('Tienda Norte', 'Mall Plaza Norte', 6),
 ('Tienda Sur', 'Mall Plaza Sur', 7),
 ('Tienda Estacion Central', 'Mall Plaza Alameda', 4),
 ('Tienda Oeste', 'Mall Plaza Oeste', 13);
 
--- Insertar empleados para Tienda Norte (10 empleados, 6 vendedores)
+-- Insertar empleados para Tienda Norte (10 empleados)
 INSERT INTO Empleado (rut, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cargo, id_comuna, sueldo_liquido, sueldo_bruto) VALUES
 ('12345678-9', 'Juan', 'Carlos', 'Gómez', 'Pérez', 'Vendedor', 6, 450000, 550000),
-('23456789-0', 'María', 'José', 'López', 'García', 'Vendedor', 6, 450000, 550000),
-('34567890-1', 'Pedro', 'Alberto', 'Martínez', 'Soto', 'Vendedor', 6, 450000, 550000),
-('45678901-2', 'Ana', 'María', 'Rodríguez', 'Fernández', 'Vendedor', 6, 450000, 550000),
-('56789012-3', 'Carlos', 'Andrés', 'Silva', 'Vargas', 'Vendedor', 6, 450000, 550000),
-('67890123-4', 'Laura', 'Isabel', 'Torres', 'Mendoza', 'Vendedor', 6, 450000, 550000),
-('78901234-5', 'Ricardo', NULL, 'Navarro', 'Castro', 'Jefe de Tienda', 6, 800000, 1000000),
-('89012345-6', 'Patricia', 'Elena', 'Ríos', 'Paredes', 'Administrativo', 6, 600000, 750000),
-('90123456-7', 'Fernando', 'Alonso', 'Cortés', 'Miranda', 'Bodeguero', 6, 500000, 650000),
-('01234567-8', 'Camila', 'Antonia', 'Vega', 'Santander', 'Cajero', 6, 480000, 600000);
+('23456789-0', 'María', 'José', 'López', 'García', 'Vendedor', 6, 460000, 560000),
+('34567890-1', 'Pedro', 'Alberto', 'Martínez', 'Soto', 'Vendedor', 6, 470000, 570000),
+('45678901-2', 'Ana', 'María', 'Rodríguez', 'Fernández', 'Vendedor', 6, 480000, 580000),
+('56789012-3', 'Carlos', 'Andrés', 'Silva', 'Vargas', 'Vendedor', 6, 490000, 590000),
+('67890123-4', 'Laura', 'Isabel', 'Torres', 'Mendoza', 'Vendedor', 6, 500000, 600000),
+('78901234-5', 'Ricardo', NULL, 'Navarro', 'Castro', 'Jefe de Tienda', 6, 850000, 1050000),
+('89012345-6', 'Patricia', 'Elena', 'Ríos', 'Paredes', 'Administrativo', 6, 650000, 800000),
+('90123456-7', 'Fernando', 'Alonso', 'Cortés', 'Miranda', 'Bodeguero', 6, 550000, 700000),
+('01234567-8', 'Camila', 'Antonia', 'Vega', 'Santander', 'Cajero', 6, 520000, 650000);
 
--- Asociar empleados a Tienda Norte
+-- Asociar empleados a Tienda Norte (IDs 1-10)
 INSERT INTO Tienda_Emp (id_tienda, id_empleado, fecha_contrato) VALUES
 (1, 1, '2020-01-15'),
 (1, 2, '2020-03-20'),
@@ -49,85 +49,83 @@ INSERT INTO Tienda_Emp (id_tienda, id_empleado, fecha_contrato) VALUES
 (1, 9, '2020-04-15'),
 (1, 10, '2020-06-30');
 
--- Insertar empleados para Tienda Sur (10 empleados, 6 vendedores)
+-- Insertar empleados para Tienda Sur (8 empleados, IDs 11-18)
 INSERT INTO Empleado (rut, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cargo, id_comuna, sueldo_liquido, sueldo_bruto) VALUES
-('11223344-5', 'Marta', 'Lucía', 'Contreras', 'Araya', 'Vendedor', 7, 450000, 550000),
-('22334455-6', 'Roberto', 'Javier', 'Aravena', 'Bustos', 'Vendedor', 7, 450000, 550000),
-('33445566-7', 'Claudia', 'Andrea', 'Bustamante', 'Donoso', 'Vendedor', 7, 450000, 550000),
-('44556677-8', 'Francisco', 'Ignacio', 'Cáceres', 'Espinoza', 'Vendedor', 7, 450000, 550000),
-('55667788-9', 'Valentina', 'Paz', 'Díaz', 'Fuentes', 'Vendedor', 7, 450000, 550000),
-('66778899-0', 'Hugo', 'Alfredo', 'Escobar', 'Gutiérrez', 'Vendedor', 7, 450000, 550000),
-('77889900-1', 'Natalia', 'Carolina', 'Figueroa', 'Henríquez', 'Jefe de Tienda', 7, 800000, 1000000),
-('88990011-2', 'Oscar', 'Manuel', 'Gaete', 'Ibarra', 'Administrativo', 7, 600000, 750000),
-('99001122-3', 'Paulina', 'Alejandra', 'Herrera', 'Jara', 'Bodeguero', 7, 500000, 650000),
-('00112233-4', 'Raúl', 'Esteban', 'Ibáñez', 'Klein', 'Cajero', 7, 480000, 600000);
+('11223344-5', 'Marta', 'Lucía', 'Contreras', 'Araya', 'Vendedor', 7, 455000, 555000),
+('22334455-6', 'Roberto', 'Javier', 'Aravena', 'Bustos', 'Vendedor', 7, 465000, 565000),
+('33445566-7', 'Claudia', 'Andrea', 'Bustamante', 'Donoso', 'Vendedor', 7, 475000, 575000),
+('44556677-8', 'Francisco', 'Ignacio', 'Cáceres', 'Espinoza', 'Vendedor', 7, 485000, 585000),
+('55667788-9', 'Valentina', 'Paz', 'Díaz', 'Fuentes', 'Vendedor', 7, 495000, 595000),
+('77889900-1', 'Natalia', 'Carolina', 'Figueroa', 'Henríquez', 'Jefe de Tienda', 7, 880000, 1080000),
+('88990011-2', 'Oscar', 'Manuel', 'Gaete', 'Ibarra', 'Administrativo', 7, 680000, 830000),
+('99001122-3', 'Paulina', 'Alejandra', 'Herrera', 'Jara', 'Bodeguero', 7, 580000, 730000);
 
--- Asociar empleados a Tienda Sur
+-- Asociar empleados a Tienda Sur (IDs 11-18)
 INSERT INTO Tienda_Emp (id_tienda, id_empleado, fecha_contrato) VALUES
 (2, 11, '2019-10-05'),
 (2, 12, '2020-01-20'),
 (2, 13, '2020-03-15'),
 (2, 14, '2020-05-22'),
 (2, 15, '2020-07-08'),
-(2, 16, '2020-09-30'),
-(2, 17, '2018-12-10'),
-(2, 18, '2020-02-18'),
-(2, 19, '2020-04-25'),
-(2, 20, '2020-08-12');
+(2, 16, '2018-12-10'),  -- Cambiado de 17 a 16
+(2, 17, '2020-02-18'),  -- Cambiado de 18 a 17
+(2, 18, '2020-04-25');  -- Cambiado de 19 a 18
 
--- Insertar empleados para Tienda Estacion (10 empleados, 6 vendedores)
+-- Insertar empleados para Tienda Estacion (12 empleados, IDs 19-30)
 INSERT INTO Empleado (rut, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cargo, id_comuna, sueldo_liquido, sueldo_bruto) VALUES
-('99887766-5', 'Sofía', 'Gabriela', 'Lagos', 'Molina', 'Vendedor', 4, 450000, 550000),
-('88776655-4', 'Tomás', 'Enrique', 'Méndez', 'Núñez', 'Vendedor', 4, 450000, 550000),
-('77665544-3', 'Daniela', 'Fernanda', 'Orellana', 'Pizarro', 'Vendedor', 4, 450000, 550000),
-('66554433-2', 'Gustavo', 'Adolfo', 'Quiroz', 'Reyes', 'Vendedor', 4, 450000, 550000),
-('55443322-1', 'Elena', 'Victoria', 'Ramírez', 'Salazar', 'Vendedor', 4, 450000, 550000),
-('44332211-0', 'Felipe', 'Ignacio', 'Sánchez', 'Tapia', 'Vendedor', 4, 450000, 550000),
-('33221100-9', 'Andrea', 'Beatriz', 'Urrutia', 'Valdés', 'Jefe de Tienda', 4, 800000, 1000000),
-('22110099-8', 'Jorge', 'Luis', 'Vargas', 'Zúñiga', 'Administrativo', 4, 600000, 750000),
-('11009988-7', 'Carolina', 'Paz', 'Yáñez', 'Aguilera', 'Bodeguero', 4, 500000, 650000),
-('00998877-6', 'Diego', 'Alberto', 'Zamora', 'Barrera', 'Cajero', 4, 480000, 600000);
+('99887766-5', 'Sofía', 'Gabriela', 'Lagos', 'Molina', 'Vendedor', 4, 452000, 552000),
+('88776655-4', 'Tomás', 'Enrique', 'Méndez', 'Núñez', 'Vendedor', 4, 462000, 562000),
+('77665544-3', 'Daniela', 'Fernanda', 'Orellana', 'Pizarro', 'Vendedor', 4, 472000, 572000),
+('66554433-2', 'Gustavo', 'Adolfo', 'Quiroz', 'Reyes', 'Vendedor', 4, 482000, 582000),
+('55443322-1', 'Elena', 'Victoria', 'Ramírez', 'Salazar', 'Vendedor', 4, 492000, 592000),
+('44332211-0', 'Felipe', 'Ignacio', 'Sánchez', 'Tapia', 'Vendedor', 4, 502000, 602000),
+('33221100-9', 'Andrea', 'Beatriz', 'Urrutia', 'Valdés', 'Jefe de Tienda', 4, 870000, 1070000),
+('22110099-8', 'Jorge', 'Luis', 'Vargas', 'Zúñiga', 'Administrativo', 4, 670000, 820000),
+('11009988-7', 'Carolina', 'Paz', 'Yáñez', 'Aguilera', 'Bodeguero', 4, 570000, 720000),
+('00998877-6', 'Diego', 'Alberto', 'Zamora', 'Barrera', 'Cajero', 4, 530000, 660000),
+('11998877-5', 'Pablo', 'Andrés', 'Zúñiga', 'Castro', 'Vendedor', 4, 510000, 620000),
+('22997766-4', 'Marcela', 'Alejandra', 'Vera', 'Molina', 'Cajero', 4, 540000, 670000);
 
--- Asociar empleados a Tienda Estacion
+-- Asociar empleados a Tienda Estacion (IDs 19-30)
 INSERT INTO Tienda_Emp (id_tienda, id_empleado, fecha_contrato) VALUES
-(3, 21, '2019-11-15'),
-(3, 22, '2020-02-10'),
-(3, 23, '2020-04-05'),
-(3, 24, '2020-06-20'),
-(3, 25, '2020-08-12'),
-(3, 26, '2020-10-25'),
-(3, 27, '2018-09-18'),
-(3, 28, '2020-01-30'),
-(3, 29, '2020-03-22'),
-(3, 30, '2020-07-08');
+(3, 19, '2019-11-15'),   -- Cambiado de 21 a 19
+(3, 20, '2020-02-10'),   -- Cambiado de 22 a 20
+(3, 21, '2020-04-05'),   -- Cambiado de 23 a 21
+(3, 22, '2020-06-20'),   -- Cambiado de 24 a 22
+(3, 23, '2020-08-12'),   -- Cambiado de 25 a 23
+(3, 24, '2020-10-25'),   -- Cambiado de 26 a 24
+(3, 25, '2018-09-18'),   -- Cambiado de 27 a 25
+(3, 26, '2020-01-30'),   -- Cambiado de 28 a 26
+(3, 27, '2020-03-22'),   -- Cambiado de 29 a 27
+(3, 28, '2020-07-08'),   -- Cambiado de 30 a 28
+(3, 29, '2020-09-15'),   -- Cambiado de 41 a 29
+(3, 30, '2020-11-20');   -- Cambiado de 42 a 30
 
--- Insertar empleados para Tienda Oeste (10 empleados, 6 vendedores)
+-- Insertar empleados para Tienda Oeste (9 empleados, IDs 31-39)
 INSERT INTO Empleado (rut, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, cargo, id_comuna, sueldo_liquido, sueldo_bruto) VALUES
-('13579246-8', 'Lorena', 'Margarita', 'Araneda', 'Bustos', 'Vendedor', 13, 450000, 550000),
-('24681357-9', 'Mauricio', 'Alejandro', 'Barrientos', 'Carvajal', 'Vendedor', 13, 450000, 550000),
-('35792468-0', 'Ximena', 'Soledad', 'Carrasco', 'Durán', 'Vendedor', 13, 450000, 550000),
-('46813579-1', 'Pablo', 'Andrés', 'Delgado', 'Espinoza', 'Vendedor', 13, 450000, 550000),
-('57924680-2', 'Verónica', 'Elizabeth', 'Farías', 'González', 'Vendedor', 13, 450000, 550000),
-('68035791-3', 'Sebastián', 'Alonso', 'Guzmán', 'Herrera', 'Vendedor', 13, 450000, 550000),
-('79146802-4', 'Macarena', 'Antonieta', 'Hernández', 'Inostroza', 'Jefe de Tienda', 13, 800000, 1000000),
-('80257913-5', 'Rodrigo', 'Felipe', 'Irarrázaval', 'Jara', 'Administrativo', 13, 600000, 750000),
-('91368024-6', 'Constanza', 'Ignacia', 'Jiménez', 'Kramer', 'Bodeguero', 13, 500000, 650000),
-('02479135-7', 'Federico', 'Joaquín', 'Klein', 'Lagos', 'Cajero', 13, 480000, 600000);
+('13579246-8', 'Lorena', 'Margarita', 'Araneda', 'Bustos', 'Vendedor', 13, 453000, 553000),
+('24681357-9', 'Mauricio', 'Alejandro', 'Barrientos', 'Carvajal', 'Vendedor', 13, 463000, 563000),
+('35792468-0', 'Ximena', 'Soledad', 'Carrasco', 'Durán', 'Vendedor', 13, 473000, 573000),
+('46813579-1', 'Pablo', 'Andrés', 'Delgado', 'Espinoza', 'Vendedor', 13, 483000, 583000),
+('57924680-2', 'Verónica', 'Elizabeth', 'Farías', 'González', 'Vendedor', 13, 493000, 593000),
+('79146802-4', 'Macarena', 'Antonieta', 'Hernández', 'Inostroza', 'Jefe de Tienda', 13, 830000, 1030000),
+('80257913-5', 'Rodrigo', 'Felipe', 'Irarrázaval', 'Jara', 'Administrativo', 13, 630000, 780000),
+('91368024-6', 'Constanza', 'Ignacia', 'Jiménez', 'Kramer', 'Bodeguero', 13, 530000, 680000),
+('02479135-7', 'Federico', 'Joaquín', 'Klein', 'Lagos', 'Cajero', 13, 510000, 640000);
 
--- Asociar empleados a Tienda Oeste
+-- Asociar empleados a Tienda Oeste (IDs 31-39)
 INSERT INTO Tienda_Emp (id_tienda, id_empleado, fecha_contrato) VALUES
 (4, 31, '2019-12-10'),
 (4, 32, '2020-03-05'),
 (4, 33, '2020-05-18'),
 (4, 34, '2020-07-22'),
 (4, 35, '2020-09-15'),
-(4, 36, '2020-11-28'),
-(4, 37, '2018-10-20'),
-(4, 38, '2020-02-14'),
-(4, 39, '2020-04-08'),
-(4, 40, '2020-08-25');
+(4, 36, '2018-10-20'),   -- Cambiado de 37 a 36
+(4, 37, '2020-02-14'),   -- Cambiado de 38 a 37
+(4, 38, '2020-04-08'),   -- Cambiado de 39 a 38
+(4, 39, '2020-08-25');   -- Cambiado de 40 a 39
 
--- Insertar productos
+-- Insertar productos (se mantiene igual)
 INSERT INTO Producto (nombre, descripcion, precio) VALUES
 ('Televisor 55" 4K', 'Televisor LED 55 pulgadas con resolución 4K', 499990),
 ('Laptop Gamer', 'Laptop con procesador i7 y tarjeta gráfica RTX 3060', 1299990),
@@ -148,7 +146,7 @@ INSERT INTO Producto (nombre, descripcion, precio) VALUES
 ('Cargador Iphone Tipo C','Cargador para Iphones compatibles, Iphone 15 en adelante', 19000),
 ('Piedra', 'Piedra encontrada en la calle', 1000);
 
--- Asociar productos a tiendas con stock
+-- Asociar productos a tiendas con stock (se mantiene igual)
 -- Tienda Norte
 INSERT INTO Tienda_Prod (id_tienda, id_producto, stock) VALUES
 (1, 1, 15), (1, 2, 8), (1, 3, 20), (1, 4, 5), (1, 5, 7),
