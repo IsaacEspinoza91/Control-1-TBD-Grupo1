@@ -45,6 +45,24 @@ GROUP BY mes, Tipo_Documento
 ORDER BY mes ASC
 -- 4. Empleado que ganó más por tienda en 2020, indicando la comuna donde vive y el cargo que tiene en la empresa. [Williams]
 -- 5. La tienda que tiene menos empleados. [Bastian]
+
+SELECT 
+    t.id_tienda,
+    t.nombre AS nombre_tienda,
+    c.nombre AS comuna,
+    COUNT(te.id_empleado) AS cantidad_empleados
+FROM 
+    tienda t
+JOIN 
+    comuna c ON t.id_comuna = c.id_comuna
+LEFT JOIN 
+    tienda_emp te ON t.id_tienda = te.id_tienda
+GROUP BY 
+    t.id_tienda, t.nombre, c.nombre
+ORDER BY 
+    cantidad_empleados ASC
+LIMIT 1;
+	
 -- 6. El vendedor con más ventas por mes. [Emir]
 WITH ventas_mensuales AS (
     SELECT 
