@@ -18,6 +18,23 @@ JOIN producto P ON P.id_producto = PE.id_producto
 WHERE rango = 1
 ORDER BY PE.mes, PE.id_producto;
 -- 2. Producto más económico por tienda. [Omar]
+SELECT 
+    t.id_tienda,
+    t.nombre AS nombre_tienda,
+    p.id_producto,
+    p.nombre AS nombre_producto,
+    p.precio AS precio_producto
+FROM Tienda t
+
+JOIN Tienda_Prod tp ON t.id_tienda = tp.id_tienda
+JOIN Producto p ON tp.id_producto = p.id_producto
+
+WHERE p.precio = (
+    SELECT MIN(p2.precio)
+    FROM Tienda_Prod tp2
+    JOIN Producto p2 ON tp2.id_producto = p2.id_producto
+    WHERE tp2.id_tienda = t.id_tienda
+);
 -- 3. Ventas por mes, separadas entre Boletas y Facturas. [Omar]
 -- 4. Empleado que ganó más por tienda en 2020, indicando la comuna donde vive y el cargo que tiene en la empresa. [Williams]
 -- 5. La tienda que tiene menos empleados. [Bastian]
