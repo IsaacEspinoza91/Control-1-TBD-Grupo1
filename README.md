@@ -17,3 +17,6 @@ Para poder ejecutar los scripts, es necesario agregar la ruta del de PostgreSQL 
 9. Se eliminó la tabla Sueldo debido a la redundancia de almacenar registros asociados únicamente a un empleado individual.
 10. Se eliminó el atributo 'fecha_pago' de la entidad EMPLEADO, dado que indicar una fecha específica carece de sentido práctico, considerando que el pago se realiza cada mes en fechas variables (yyyy-mm-dd).
 11. Se eliminó la tabla Vendedor, ya que almacenaba una clave primaria compuesta entre 'id_vendedor' e 'id_empleado'. Esta decisión simplifica la estructura y evita complicaciones en la creación de poblados, cumpliendo con las restricciones de MySQL respecto a claves incrementales dentro de claves compuestas.
+
+
+[Descargar Diccionario de Datos](./Modelos%20y%20diccionario/Diccionario_de_datos.xlsx)
