@@ -42,7 +42,7 @@ SELECT
 	SUM(total) AS total_dinero_mensual
 FROM venta
 GROUP BY mes, Tipo_Documento
-ORDER BY mes ASC
+ORDER BY mes ASC;
 -- 4. Empleado que ganó más por tienda en 2020, indicando la comuna donde vive y el cargo que tiene en la empresa. [Williams]
 SELECT
 	L.id_tienda,
