@@ -1,6 +1,10 @@
 # Control-1-TBD-Grupo1
 
-Modificaciones realizadad al esquema presentado
+--Cosas necesarias para poder correr los scripts--
+
+Para poder ejecutar los scripts, es necesario agregar la ruta del de PostgreSQL (usado por PGAdmin) a las variables de entorno del sistema del ususario, específicamente al PATH del usuario en el PC.
+
+--Modificaciones realizadad al esquema presentado--
 
 1. Se introdujo el atributo 'stock' en la relación entre Producto y Tienda.
 2. Se eliminó el atributo 'id_producto' de la tabla VENTA, trasladando la clave foránea a la tabla PROD-VENTA. Se destaca que una venta puede contener varios productos.
